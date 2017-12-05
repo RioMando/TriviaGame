@@ -1,0 +1,1 @@
+$('#containerId').append('<input type="checkbox" name="myCheckbox" />');
