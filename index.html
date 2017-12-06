@@ -11,29 +11,62 @@
 
   <!-- Header -->
   <div class="bigBox">  <!-- This is the container for all the information  -->
-    <h1>Totatlly Trivial Trivia</h1>
+    <h1>Totally Trivial Trivia</h1>
     <h2>Time remaining<span id="timer"></span></h2>
     <h2 class ="question">What is the name of the Greek God of War?</h2>
-    <div class="containerId">With JQuery</div>
+    <!-- Rendered checkboxes will get dumped here  -->
+    <div id="checkbox-view"></div>
+
+    
 
 
     <label><input type="checkbox" name="checkbox" value="value">Venus</label>
-    <label><input type="checkbox" name="checkbox" value="value">Mars</label>
-    <label><input type="checkbox" name="checkbox" value="value">Jupiter</label>
+<!--    <label><input type="checkbox" name="checkbox" value="value">Jupiter</label>
     <label><input type="checkbox" name="checkbox" value="value">Warrior</label>
     <br>
     <input type="checkbox" name="checkbox" id="checkbox_id" value="value">
     <label for="checkbox_id">Text</label>
     </header>
   </div>
-
+-->
 
 
   <!-- JQuery -->
   <script  src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
   <!-- Javascript -->
-  <script type="text/javascript" src="assets/javascript/app.js"></script>
+<!--  <script type="text/javascript" src="assets/javascript/app.js"></script>  -->
+
+ <script type="text/javascript">
+   
+   var responses = ["unoUno", "dosDos", "tresTres", "cuatroCuatro" ];
+   	
+
+function renderButtons() {
+   // Loops through the array of responses
+  for (var i = 0; i < responses.length; i++) {
+    // Then dynamicaly generates buttons for each response option in the array
+    // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
+    var a = $("<div>");
+    // Adds a class of response option to our checkbox
+    a.addClass("response");
+   // a.addType("checkbox");
+    // Added a data-attribute
+   // a.attr("type", checkbox);
+    a.attr("option", responses[i]);
+    // Provided the text asociated to the response
+    a.text(responses[i]);
+    // Added the button to the buttons-view div
+    $("#checkbox-view").append(a);
+  }
+
+}
+      renderButtons();
+
+
+</script>
+
+
 
 </body>
 </html>
