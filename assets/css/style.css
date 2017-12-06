@@ -22,9 +22,10 @@ h2 {
 
 .bigBox {
     margin: auto;
-    width: 70%;
+    margin-top: 10px;
+    width: 80%;
 	padding: 10px 10px 2px 10px;
-	max-width: 700px;
+/*	max-width: auto;*/
 	border: 1px solid #ddd;
 	background-color: #400ce8;
 }
