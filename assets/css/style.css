@@ -6,7 +6,7 @@ body {
 	color: #777;
 }
 
-response {
+#timer, response {
 	margin: 10px;
 }
 
@@ -21,14 +21,24 @@ h1 {
 }
 
 h2 {
+	text-align: center;
+	margin: 20px;
 	color: #84ff0d;
 }
 
-button {
+.button {
+	display: block;
+	margin: auto;
 	width: 200px;
 	line-height: 40px;
 	background-color: yellow;
-	/*align: auto;*/
+}
+
+/* Style for the GIF's of the correct answers */
+img {
+    display: block;
+    margin: auto;
+    width: 40%;
 }
 
 .bigBox {
