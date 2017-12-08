@@ -12,11 +12,12 @@
   <!-- Header -->
   <div class="bigBox">  <!-- This is the container for all the information  -->
     <h1>Totally Trivial Trivia</h1>
-    <button>Start</button>
-    <h2>Time remaining<span id="timer">00:00</span></h2>
-    <h2 class ="question">What is the name of the Greek God of War?</h2>
+    <h2 id="timeRemaining"><span id="timer"></span></h2>
+    <button class="button" id="start">Start</button>
+    <h2 class ="data-question"></h2>
     <!-- Rendered checkboxes will get dumped here  -->
-	<input type="checkbox" id="checkStatus"><span id="checkbox-view"></span></input>
+	  <input type="checkbox" id="data-option"></input>
+    <img id="gifCorrectAnswer"></div>
     
 <!--    <label><input type="checkbox" name="checkbox" value="value">Venus</label>
     <label><input type="checkbox" name="checkbox" value="value">Jupiter</label>
@@ -32,38 +33,10 @@
   <script  src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
   <!-- Javascript -->
-<!--  <script type="text/javascript" src="assets/javascript/app.js"></script>  -->
+  <script type="text/javascript" src="assets/javascript/app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!--  <script type="text/javascript">  -->
 
- <script type="text/javascript">
-   
-   var responses = ["unoUno ", "dosDos ", "tresTres ", "cuatroCuatro " ];
-   	
-
-function renderAnswers() {
-   // Loops through the array of responses
-   console.log($("input").is(":checked"))
-  for (var i = 0; i < responses.length; i++) {
-    // Then dynamicaly generates buttons for each response option in the array
-    // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
-    var a = $("<p>");
-    // Adds a class of response option to our checkbox
-    a.addClass("response");
-   // a.addType("checkbox");
-    // Added a data-attribute
-   // a.attr("type", checkbox);
-    a.attr("options", responses[i]);
-    // Provided the text asociated to the response
-    a.text(responses[i]);
-    //a = $("div input[type='checkbox']").attr('checked','checked');
-    // Added the button to the buttons-view div
-    $("#checkbox-view").append(a);
-  }
-
-}
-      renderAnswers();
-
-
-</script>
 
 
 
