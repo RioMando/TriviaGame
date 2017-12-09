@@ -3,7 +3,7 @@ body {
 	font-size: 20px;
 	line-height: 25px;
 	font-family: 'Arial', 'Helvetica Neve', Helvetica, sans-serif;
-	color: #777;
+	color: #7aa;
 }
 
 #timer, response {
@@ -28,10 +28,14 @@ h2 {
 
 .button {
 	display: block;
-	margin: auto;
-	width: 200px;
-	line-height: 40px;
+	margin: 25px auto;
+	width: 175px;
+	line-height: 25px;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 22px;
 	background-color: yellow;
+	cursor: pointer;
 }
 
 /* Style for the GIF's of the correct answers */
@@ -41,12 +45,22 @@ img {
     width: 40%;
 }
 
+/* Container box for all the information */
 .bigBox {
     margin: auto;
     margin-top: 10px;
     width: 80%;
 	padding: 10px 10px 2px 10px;
-/*	max-width: auto;*/
+    min-height: 400px;
 	border: 1px solid #ddd;
 	background-color: #400ce8;
+}
+
+#data-answer {
+	text-align: center;
+	margin: auto;
+}
+
+.text {
+	margin: 20px 0;
 }
