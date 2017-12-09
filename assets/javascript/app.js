@@ -1,5 +1,5 @@
 var questionAnswer = $("<div>");
-//function starter() {
+// function starter() {
   var starting = $("<button>");
   starting.text("Start");
   starting.attr("href", "#");
@@ -7,9 +7,8 @@ var questionAnswer = $("<div>");
   questionAnswer.append(starting);
   $('#display-data').append(questionAnswer);
 
-
+// }
 $(".button").on("click", function() {
-//      console.log(this);
 
   $.ajax({
     //url: "https://opentdb.com/api.php?amount=10&category=17&difficulty=easy&type=multiple",
@@ -17,10 +16,8 @@ $(".button").on("click", function() {
     //url: "https://opentdb.com/api.php?amount=10",
     method: "GET"
   }).done(function(response) {
-    console.log(response);
-    console.log("Correct Answ: " + response.results[0].correct_answer);
-    console.log(response.results[0].incorrect_answers);
-    $("#display-data").empty();
+    
+    $("#answers-div").empty();
 
     var result = response.results;
     number = Math.floor(Math.random() * 4);
@@ -37,36 +34,48 @@ $(".button").on("click", function() {
       } else {
         optionAnswer[i] = result[0].correct_answer;
       }
-        displayValue(optionAnswer[i], "multiOption"); //Call function to display information on screen
+        displayValue(optionAnswer[i], "dataOption"); //Call function to display information on screen
     }
   });
 
   // var p = $("<P>").text("Time R`emaining: " + clock);
   // here goes the FOR-LOOP
   function displayValue(info, typeAttr) {
-    $(this).addClass("optns");//////////////////
-    console.log("info: " + info + " Type: " + typeAttr);
+  //  $(this).addClass("optns");//////////////////
     var questionAnswer = $("<div>");
     var z = info;
-    console.log(questionAnswer);
     questionAnswer.addClass(typeAttr);
     questionAnswer.attr("name", z);
     var infoQuestion = info;
-    var p = $("<p>");
-    questionAnswer.append(p);
-    questionAnswer.append(infoQuestion);
+    // var p = $("<p>");
+    // questionAnswer.append(p);
+    questionAnswer.append("<p>" + infoQuestion + "</p>");
     
-    $('#display-data').append(questionAnswer);
+    $('#answers-div').append(questionAnswer);
   }
 });
+
+    // Adding a click event listener to all elements with a class of "movie"
+    //this is the good code      $("#answers-div").on("click", ".dataOption", calling );
+      $("#answers-div").on("click", ".dataOption", function(){
+        console.log($(this).attr("name"));
+      });
+
+// $(".dataOption").click(function(event){
+//   event.preventDefault();
+// //  console.log(this); 
+// //  calling();
+// });
+
+
+function calling() {
+  console.log("You selected an answer");
+};
+
 /*
-     // Adding a click event listener to all elements with a class of "movie"
-      $(document).on("click", ".optnn", EvaluateAnswer());
-
-
   function EvaluateAnswer () {
     alert("correct, #: " );
-    console.log(this);
+    console.log(this.name);
   } 
 
 
