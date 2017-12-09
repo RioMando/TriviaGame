@@ -38,6 +38,23 @@ h2 {
 	cursor: pointer;
 }
 
+.type-question {
+    font-weight: normal;
+    color: white;
+    margin: 25px;
+}
+
+.type-multiOption {
+    font-weight: 800;
+    color: #fe9;
+    margin:10px;
+    border: 1px;
+    cursor: pointer;
+}
+.type-multioption:hover {
+    background-color: #ffc20d;
+}
+
 /* Style for the GIF's of the correct answers */
 img {
     display: block;
@@ -56,7 +73,7 @@ img {
 	background-color: #400ce8;
 }
 
-#data-answer {
+#display-data {
 	text-align: center;
 	margin: auto;
 }
