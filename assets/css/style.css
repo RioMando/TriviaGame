@@ -6,10 +6,6 @@ body {
 	color: #7aa;
 }
 
-#timer, response {
-	margin: 10px;
-}
-
 h1 {
     font-family: 'Georgia', Times, Times New Roman, serif;
     text-align: center;
@@ -18,12 +14,6 @@ h1 {
 	font-weight: 700;
     font-size: 30px;
 	text-decoration: none;
-}
-
-h2 {
-	text-align: center;
-	margin: 20px;
-	color: #84ff0d;
 }
 
 .button {
@@ -38,20 +28,21 @@ h2 {
 	cursor: pointer;
 }
 
-.type-question {
+.question {
     font-weight: normal;
     color: white;
     margin: 25px;
 }
 
-.type-multiOption {
+.multiOption {
     font-weight: 800;
     color: #fe9;
     margin:10px;
     border: 1px;
     cursor: pointer;
 }
-.type-multioption:hover {
+
+.multioption:hover {
     background-color: #ffc20d;
 }
 
@@ -81,3 +72,15 @@ img {
 .text {
 	margin: 20px 0;
 }
+
+/*
+#timer, response {
+	margin: 10px;
+}
+
+h2 {
+	text-align: center;
+	margin: 20px;
+	color: #84ff0d;
+}
+*/
