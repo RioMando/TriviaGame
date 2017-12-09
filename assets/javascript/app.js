@@ -1,17 +1,12 @@
 var questionAnswer = $("<div>");
 //function starter() {
-  var starting = $("<button class='button'>");
+  var starting = $("<button>");
   starting.text("Start");
   starting.attr("href", "#");
   starting.addClass("button");
   questionAnswer.append(starting);
-  $('#data-answer').append(questionAnswer);
-//};
-//<a href="#" class="button">Link Button</a>
-//starter();
+  $('#display-data').append(questionAnswer);
 
-
-/* button class="button" id="start">Start</button> */
 
 $(".button").on("click", function() {
       console.log(this);
@@ -23,22 +18,17 @@ $(".button").on("click", function() {
     method: "GET"
   }).done(function(response) {
     console.log(response);
-    console.log("Quwestion: " + response.results[0].question);
     console.log("Correct Answ: " + response.results[0].correct_answer);
     console.log(response.results[0].incorrect_answers);
-    console.log(response.results[0].incorrect_answers[0]);
-    console.log(response.results[0].incorrect_answers[1]);
-    console.log(response.results[0].incorrect_answers[2]);
-    $("#data-answer").empty();
+    $("#display-data").empty();
+
     var result = response.results;
     number = Math.floor(Math.random() * 4);
     console.log("number: " + number);
     //Array and for-loop to store the 4 options icluding the correct option in a random place to be displayed  
     
-    displayValue(result[0].question);  //Display Question on Screen
-    displayValue();
+    displayValue(result[0].question, "type-question");  //Display Question on Screen
     var optionAnswer = [];
-    console.log("optAnsw before FOR-LOOP: " + optionAnswer);    
     for (var i = 0; i < 4; i++ ) {
       if (i < number ) {
         optionAnswer[i] = result[0].incorrect_answers[i];
@@ -47,23 +37,24 @@ $(".button").on("click", function() {
       } else {
         optionAnswer[i] = result[0].correct_answer;
       }
-        console.log("optAnsw[ "+i+" ]: " + optionAnswer[i]);
-        displayValue(optionAnswer[i]);
+        displayValue(optionAnswer[i], "  /  type-multiOption"); //Call function to display information on screen
     }
-     console.log("optAnsw AFTER FOR-LOOP: " + optionAnswer);
   });
 
     // var p = $("<P>").text("Time R`emaining: " + clock);
     //here goes the FOR-LOOP
-  function displayValue(info) {
-    console.log("info: " + info);
-    var questionAnswer = $("<div class='text'>");
+  function displayValue(info, typeAttr) {
+    console.log("info: " + info + " Type: " + typeAttr);
+    var questionAnswer = $("<div>");
+    questionAnswer.attr("class", typeAttr);
     var infoQuestion = info;
     var p = $("<p>");
     //  .text(result[0]);
+    //infoQuestion.append(p);
     questionAnswer.append(p);
     questionAnswer.append(infoQuestion)
-    $('#data-answer').append(questionAnswer);
+    
+    $('#display-data').append(questionAnswer);
 /*
     var answDiv = $("<Div>")
     //.text(result.correct_answer);
