@@ -7,7 +7,7 @@ body {
 }
 
 h1 {
-    font-family: 'Georgia', Times, Times New Roman, serif;
+
     text-align: center;
 	line-height: 90px;
     color: #20fff7;
@@ -34,7 +34,7 @@ h1 {
     margin: 25px;
 }
 
-.multiOption {
+.dataOption {
     font-weight: 800;
     color: #fe9;
     margin:10px;
@@ -42,7 +42,7 @@ h1 {
     cursor: pointer;
 }
 
-.multioption:hover {
+.dataOption:hover {
     background-color: #ffc20d;
 }
 
