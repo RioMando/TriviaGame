@@ -12,14 +12,15 @@ $(".button").on("click", function() {
 
   $.ajax({
     //url: "https://opentdb.com/api.php?amount=10&category=17&difficulty=easy&type=multiple",
-    url: "https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple",
-    //url: "https://opentdb.com/api.php?amount=10",
+    //url: "https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple",
+    url: "https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&type=multiple",  //Category: Cartoon & Animations
     method: "GET"
-  }).done(function(response) {
-    
+  }).done(function(resp) {
+    console.log(resp);
+    console.log("Answer: " + resp.results[0].correct_answer);
     $("#answers-div").empty();
 
-    var result = response.results;
+    var result = resp.results;
     number = Math.floor(Math.random() * 4);
     console.log("number: " + number);
 
@@ -76,7 +77,17 @@ function calling() {
   function EvaluateAnswer () {
     alert("correct, #: " );
     console.log(this.name);
-  } 
+  }*/
 
+  /* NEXT STEPS:
+  - Compare attribute name from selected option with the correct answer.
+  - Add counters for correct answers, incorrect answers and not answered.
+  - Add logic to show correct/incorrect answer when option is selected. 
+  - Add timer and display it on screen above question.
+  - Modify logic to include to show answer if no option is selectedin the alloted time and show "Out of Time!".
+  - Add API to show GIF for the correct answer, including in the search the content stored in attribute "name".
+  - Add for-loop/counter to go through the 10 elements of the array (10 questions).
+  - Show at the end the summary of the score and the "Start Over" option"
+  - If start over option is selceted initialize counters and show the next 10 questions.
 
-*/
+  */
