@@ -16,7 +16,15 @@ h1 {
 	text-decoration: none;
 }
 
-.button {
+button {
+  width: 100px;
+
+  /* Box-model */
+  height: 50px;
+  background-color: yellow;
+}
+
+/*.button {
 	display: block;
 	margin: 25px auto;
 	width: 175px;
@@ -26,7 +34,7 @@ h1 {
     font-size: 22px;
 	background-color: yellow;
 	cursor: pointer;
-}
+}*/
 
 .question {
     font-weight: normal;
@@ -43,7 +51,7 @@ h1 {
 }
 
 .dataOption:hover {
-    background-color: #ffc20d;
+    background-color: #fc0;
 }
 
 /* Style for the GIF's of the correct answers */
@@ -54,7 +62,7 @@ img {
 }
 
 /* Container box for all the information */
-.bigBox {
+.wrapper {
     margin: auto;
     margin-top: 10px;
     width: 80%;
