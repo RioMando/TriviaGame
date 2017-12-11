@@ -41,7 +41,7 @@ function start(){
     result = resp.results;
     tenQuestions(); //Call function to display the 1st question  /\/\/\/\/\
 }); // End of .done function
-
+}
 function tenQuestions() {
   console.log("correct answer: " + result[j].correct_answer);
   console.log("wrong answers: " + result[j].incorrect_answers);
@@ -49,7 +49,8 @@ function tenQuestions() {
 //  for (var j=0; j<10; j++) {
 //    if (j < 10) {    
     var number = Math.floor(Math.random() * 4);
-      //  $("#answers-div").empty(); /////////////////<<<<<<<<<< 12/10/17 @ 22:27
+    $("#answers-div").empty(); /////////////////<<<<<<<<<< 12/10/17 @ 22:27
+    //$(".dataOption").empty();
     correctAnswer = result[j].correct_answer;
     //Array and for-loop store the correct answer in a random place to be displayed (stored ramdomly) in a 4 options array)
     displayValue(result[j].question, "question");  //Display Question on Screen
@@ -67,7 +68,7 @@ function tenQuestions() {
 //      j++;
 //    } // End if j<10 condition
 //  } // End of tenQuestions function (j-for-loop) 
-  }
+  
 }// End of tenQuestions function
 
 function displayValue(info, typeAttr) {
@@ -94,7 +95,7 @@ function compareAnswer(nameHere){
   }
   j++;
 //  $(".dataOption").empty();
-
+  tenQuestions();
 } // End of compareAnswer function
 
 
