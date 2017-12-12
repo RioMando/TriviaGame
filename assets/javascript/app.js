@@ -37,17 +37,18 @@ function start(){
     method: "GET"
   }).done(function(resp) {
 
-//    $("#starter").empty();  ///////\\\\\\ To remove the initial Start button
+    $("#starter").empty();  // To remove the initial Start button
     result = resp.results;
     tenQuestions(); //Call function to display the 1st question  /\/\/\/\/\
 }); // End of .done function
 }
 function tenQuestions() {
-  console.log("correct answer: " + result[j].correct_answer);
-  console.log("wrong answers: " + result[j].incorrect_answers);
   //Array to go through the 10 questions returned by the API
 //  for (var j=0; j<10; j++) {
-//    if (j < 10) {    
+  if (j < 10) {    
+  console.log("correct answer: " + result[j].correct_answer);
+  console.log("wrong answers: " + result[j].incorrect_answers);
+
     var number = Math.floor(Math.random() * 4);
     $("#answers-div").empty(); /////////////////<<<<<<<<<< 12/10/17 @ 22:27
     //$(".dataOption").empty();
@@ -63,29 +64,28 @@ function tenQuestions() {
       } else {                                     //Stores the correct answer in the random position of the array 
         answersArray[i] = result[j].correct_answer;
       }
+      console.log("Question #: " + (j+1));
       displayValue(answersArray[i], "dataOption"); //Call function to display information on screen
     } // End of i-for-loop
-//      j++;
-//    } // End if j<10 condition
-//  } // End of tenQuestions function (j-for-loop) 
-  
+  } else {
+    console.log("You reach " + (j-1) + " questions.")
+    console.log("Correct answers: " + correct);
+    console.log("wrong ansers: " + wrong);
+    finalScore();
+  }
 }// End of tenQuestions function
 
 function displayValue(info, typeAttr) {
 //  $(this).addClass("optns");//////////////////
   var questionAnswer = $("<div>");
   var z = info;
-  questionAnswer.addClass(typeAttr);
+  questionAnswer.addClass(typeAttr);  //typeAttr is the parameter to add the class to the elements in answers-div
   questionAnswer.attr("name", z);
-  var infoQuestion = info;
-  // var p = $("<p>");
-  // questionAnswer.append(p);
-  questionAnswer.append("<p>" + infoQuestion + "</p>");
+  questionAnswer.append("<p>" + info + "</p>");
   $('#answers-div').append(questionAnswer);
 } // End displayValue function
 
 function compareAnswer(nameHere){
-  
   if (nameHere === correctAnswer) {
     correct++;
     console.log("corrects: " + correct);
@@ -94,11 +94,18 @@ function compareAnswer(nameHere){
     console.log("wrong: " + wrong);
   }
   j++;
-//  $(".dataOption").empty();
   tenQuestions();
 } // End of compareAnswer function
 
-
+function finalScore() {
+  $("#answers-div").empty();
+  displayValue("All done, here is how you did !!!", "question");
+  displayValue("Correct Answers: " + correct, "answers-div");
+  displayValue("Incorrect Answers: " + wrong, "answers-div");
+  displayValue("Unanswered: ", "answers-div");
+//  questionAnswer.append("<p>" + infoQuestion + "</p>");
+//  $('#answers-div').append(questionAnswer);
+}
 
 
 
