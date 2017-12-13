@@ -9,8 +9,18 @@ window.onload = function() {
     compareAnswer(name);
    //tenQuestions();
   });
-  $("#start-again").empty();
+  $("#start-over").on("click", function() {
+    console.log("START OVER AGAIN!!");
+    correct=0;
+    wrong=0;
+    unanswered=0;
+    j=0;
+    $("#start-over").empty();
+    start();
+  });
 };
+
+
 
 var correct = 0;
 var wrong = 0;
@@ -41,12 +51,13 @@ function start(){
 
     $("#starter").empty();  // To remove the initial Start button
     result = resp.results;
-    tenQuestions(); //Call function to display the 1st question  /\/\/\/\/\
+    console.log(result);
+    tenQuestions(); //Call function to display the 1st question 
   }); // End of .done function
 } //End of start()
 
 function tenQuestions() {
-  if (j < 10) {    
+  if (j < 2) {    
   $("#display-timer").text("Time Remaining: " + time + " Seconds");
     console.log("correct answer: " + result[j].correct_answer);
     var number = Math.floor(Math.random() * 4);
@@ -71,8 +82,7 @@ function tenQuestions() {
       } else {                                     //Stores the correct answer in the random position of the array 
         answersArray[i] = result[j].correct_answer;
       }
-      console.log("Question #: " + (j+1));
-      reset(); //Reinitialize values to 30 secs per question
+      reset(); //Reinitialize timer values to 30 secs per question
       startTimer(); //Start timer to answer each question
       displayValue(answersArray[i], "dataOption"); //Call function to display information on screen
     } // End of i-for-loop
@@ -84,14 +94,6 @@ function tenQuestions() {
     finalScore();
   } //End of if-else
 }// End of tenQuestions()
-
-function displayValue(info, typeAttr) {
-  var questionAnswer = $("<div>");
-  questionAnswer.addClass(typeAttr);  //typeAttr is the parameter to add the class to the elements in answers-div
-  questionAnswer.attr("name", info);
-  questionAnswer.append("<p>" + info + "</p>");
-  $('#answers-div').append(questionAnswer);
-} // End displayValue function
 
 function compareAnswer(nameHere){
   if (nameHere === correctAnswer) {
@@ -115,16 +117,28 @@ function showAnswer() {
   stopTimer();
   console.log("Correct anser in showAnswer: " + correctAnswer);
   $("#answers-div").text("The Correct Answer is: " + correctAnswer);
-  setTimeout(tenQuestions, 7000);
+  setTimeout(tenQuestions, 1500);
 } // End showAnswer()
+
+function displayValue(info, typeAttr) {
+  var questionAnswer = $("<div>");
+  questionAnswer.addClass(typeAttr);  //typeAttr is the parameter to add the class to the elements in answers-div
+  questionAnswer.attr("name", info);
+  questionAnswer.append("<p>" + info + "</p>");
+  $('#answers-div').append(questionAnswer);
+} // End displayValue function
 
 function finalScore() {
   stopTimer();
+  $("#question").empty();
   $("#answers-div").empty();
   displayValue("All done, here is how you did !!!", "question");
   displayValue("Correct Answers: " + correct, "answers-div");
   displayValue("Incorrect Answers: " + wrong, "answers-div");
   displayValue("Unanswered: " + unanswered, "answers-div");
+
+    $('#start-over').text("Start Over");
+
 //  questionAnswer.append("<p>" + infoQuestion + "</p>");
 //  $('#answers-div').append(questionAnswer);
 }
@@ -180,12 +194,12 @@ function count() {
   /* NEXT STEPS:
  Done - Compare attribute name from selected option with the correct answer.
  Done - Add counters for correct answers, incorrect answers and not answered.
-  - Add logic to show correct/incorrect answer when option is selected. 
-  - Add timer and display it on screen above question.
-  - Modify logic to include to show answer if no option is selectedin the alloted time and show "Out of Time!".
+ Done  - Add logic to show correct/incorrect answer when option is selected. 
+ Done - Add timer and display it on screen above question.
+ Done - Modify logic to include to show answer if no option is selectedin the alloted time and show "Out of Time!".
   - Add API to show GIF for the correct answer, including in the search the content stored in attribute "name".
-  - Add for-loop/counter to go through the 10 elements of the array (10 questions).
-  - Show at the end the summary of the score and the "Start Over" option"
+ Done - Add for-loop/counter to go through the 10 elements of the array (10 questions).
+ Done - Show at the end the summary of the score and the "Start Over" option"
   - If start over option is selceted initialize counters and show the next 10 questions.
 
   */

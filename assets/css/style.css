@@ -54,6 +54,12 @@ button {
     background-color: #fc0;
 }
 
+#start-over:hover {
+    background-color: navy;
+    color: white;
+    cursor: pointer;
+}
+
 /* Style for the GIF's of the correct answers */
 img {
     display: block;
