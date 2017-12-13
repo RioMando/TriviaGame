@@ -52,7 +52,7 @@ function tenQuestions() {
     var number = Math.floor(Math.random() * 4);
     
     //Clear the div, specially when display question#2 and following
-//    $("#question").empty();
+    $("#question").empty();
     $("#answers-div").empty();
     
     //Variable to store the correct answer    
@@ -72,6 +72,7 @@ function tenQuestions() {
         answersArray[i] = result[j].correct_answer;
       }
       console.log("Question #: " + (j+1));
+      reset(); //Reinitialize values to 30 secs per question
       startTimer(); //Start timer to answer each question
       displayValue(answersArray[i], "dataOption"); //Call function to display information on screen
     } // End of i-for-loop
@@ -79,6 +80,7 @@ function tenQuestions() {
     console.log("You reach " + (j-1) + " questions.")
     console.log("Correct answers: " + correct);
     console.log("wrong ansers: " + wrong);
+    stopTimer();
     finalScore();
   } //End of if-else
 }// End of tenQuestions()
@@ -96,26 +98,23 @@ function compareAnswer(nameHere){
     correct++;
     $("#answers-div").empty();
     //$("#question").()
-    compareFlag = true;
+    //compareFlag = true;
+    $("#question").text("Correct!");
     console.log("corrects: " + correct);
   } else {
     wrong++;
     console.log("wrong: " + wrong);
-    compareFlag = false;
+    //compareFlag = false;
+    $("#question").text("Nope!");
   }
   j++;
   showAnswer();
 } // End of compareAnswer function
 
 function showAnswer() {
-  if(compareFlag) {
-    
-  } else{
-    $("#answers-div").empty();
-    $("#question").text("Nope!");
-    $("#answers-div").text("The Correct Answer was: " + correctAnswer);
-  } //Ens if-else
   stopTimer();
+  console.log("Correct anser in showAnswer: " + correctAnswer);
+  $("#answers-div").text("The Correct Answer is: " + correctAnswer);
   setTimeout(tenQuestions, 7000);
 } // End showAnswer()
 
@@ -134,13 +133,6 @@ function finalScore() {
 /*=============================================================
   Code for the counter 30 secs to answer the questions,
   and 8 secs to show the correct answer                      */
-
-// This code will run as soon as the page loads
-//window.onload = function() {
-//  $("#stop").on("click", stop);
-//  $("#reset").on("click", reset);
-//  $("#startTimer").on("click", startTimer);
-//}; //End of onload
 
 //  Variable that will hold our setInterval that runs the stopwatch
 var intervalId;
@@ -177,7 +169,8 @@ function count() {
   } else { //Time is up and next question or results arre shown
     j++;
     unanswered++;
-    tenQuestions();
+    $("#question").text("Out of Time!"); 
+    showAnswer();
     //stop();
   } //End of if-else
 } //End of count()
