@@ -54,6 +54,11 @@ button {
     background-color: #fc0;
 }
 
+#start-over {
+    margin: 25px;
+    fonth-weight: 400;
+}
+
 #start-over:hover {
     background-color: navy;
     color: white;

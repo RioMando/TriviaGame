@@ -10,7 +10,6 @@ window.onload = function() {
    //tenQuestions();
   });
   $("#start-over").on("click", function() {
-    console.log("START OVER AGAIN!!");
     correct=0;
     wrong=0;
     unanswered=0;
@@ -19,8 +18,6 @@ window.onload = function() {
     start();
   });
 };
-
-
 
 var correct = 0;
 var wrong = 0;
@@ -57,7 +54,7 @@ function start(){
 } //End of start()
 
 function tenQuestions() {
-  if (j < 2) {    
+  if (j < 5) {   //Here is indicated the number of questions to display (maximum 10)    
   $("#display-timer").text("Time Remaining: " + time + " Seconds");
     console.log("correct answer: " + result[j].correct_answer);
     var number = Math.floor(Math.random() * 4);
@@ -87,9 +84,6 @@ function tenQuestions() {
       displayValue(answersArray[i], "dataOption"); //Call function to display information on screen
     } // End of i-for-loop
   } else { // This is executed when all the questions are answered to show the final scores
-    console.log("You reach " + (j-1) + " questions.")
-    console.log("Correct answers: " + correct);
-    console.log("wrong ansers: " + wrong);
     stopTimer();
     finalScore();
   } //End of if-else
@@ -115,9 +109,8 @@ function compareAnswer(nameHere){
 
 function showAnswer() {
   stopTimer();
-  console.log("Correct anser in showAnswer: " + correctAnswer);
   $("#answers-div").text("The Correct Answer is: " + correctAnswer);
-  setTimeout(tenQuestions, 1500);
+  setTimeout(tenQuestions, 5000);  //Time to show the correct answer in display
 } // End showAnswer()
 
 function displayValue(info, typeAttr) {
@@ -136,27 +129,22 @@ function finalScore() {
   displayValue("Correct Answers: " + correct, "answers-div");
   displayValue("Incorrect Answers: " + wrong, "answers-div");
   displayValue("Unanswered: " + unanswered, "answers-div");
-
-    $('#start-over').text("Start Over");
-
-//  questionAnswer.append("<p>" + infoQuestion + "</p>");
-//  $('#answers-div').append(questionAnswer);
-}
+  $('#start-over').text("Start Over?");
+} //End of finalScore()
 
 
-/*=============================================================
-  Code for the counter 30 secs to answer the questions,
-  and 8 secs to show the correct answer                      */
+/*================================================================
+  Code for the counter of secs available to answer the questions */
 
 //  Variable that will hold our setInterval that runs the stopwatch
 var intervalId;
 
 //prevents the clock from being sped up unnecessarily
 var clockRunning = false;
-var time = 9;
+var time = 22;
 
 function reset() {
-  time = 8;
+  time = 22;
   $("#display-timer").text("Time Remaining: " + time + " Seconds");
 } //End of reset
 
@@ -169,7 +157,6 @@ function startTimer() {
 } //End of startTimer()
 
 function stopTimer() {
-  console.log("stopping");
   // DONE: Use clearInterval to stop the count here and set the clock to not be running.
   clearInterval(intervalId);
   clockRunning = false;
@@ -180,12 +167,12 @@ function count() {
   if (time >= 0 ) {
   //var converted = timeConverter(time);
   $("#display-timer").text("Time Remaining: " + time + " Seconds");
-  } else { //Time is up and next question or results arre shown
+  } else { //Time is up and next question or results are shown
     j++;
     unanswered++;
+    console.log("Unanswered: " + unanswered);
     $("#question").text("Out of Time!"); 
     showAnswer();
-    //stop();
   } //End of if-else
 } //End of count()
 
@@ -197,9 +184,8 @@ function count() {
  Done  - Add logic to show correct/incorrect answer when option is selected. 
  Done - Add timer and display it on screen above question.
  Done - Modify logic to include to show answer if no option is selectedin the alloted time and show "Out of Time!".
-  - Add API to show GIF for the correct answer, including in the search the content stored in attribute "name".
  Done - Add for-loop/counter to go through the 10 elements of the array (10 questions).
  Done - Show at the end the summary of the score and the "Start Over" option"
-  - If start over option is selceted initialize counters and show the next 10 questions.
-
+ Done - If start over option is selceted initialize counters and show the next serie of questions.
+      - Add API to show GIF for the correct answer, including in the search the content stored in attribute "name".
   */
