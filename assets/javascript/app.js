@@ -134,8 +134,8 @@ function finalScore() {
 } //End of finalScore()
 
 
-/*================================================================
-  Code for the counter of secs available to answer the questions */
+// ==============================================================
+// Code for the counter of secs available to answer the questions
 
 //  Variable that will hold our setInterval that runs the stopwatch
 var intervalId;
