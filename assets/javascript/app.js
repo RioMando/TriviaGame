@@ -7,7 +7,7 @@ window.onload = function() {
   $("#answers-div").on("click", ".dataOption", function(){
     name = $(this).attr("name");
     compareAnswer(name);
-   //tenQuestions();
+   
   });
 
   $("#start-over").on("click", function() {
