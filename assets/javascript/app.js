@@ -142,10 +142,10 @@ var intervalId;
 
 //prevents the clock from being sped up unnecessarily
 var clockRunning = false;
-var time = 20;
+var time = 18;
 
 function reset() {
-  time = 20;
+  time = 18;
   $("#display-timer").text("Time Remaining: " + time + " Seconds");
 } //End of reset
 
