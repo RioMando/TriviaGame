@@ -9,6 +9,7 @@ window.onload = function() {
     compareAnswer(name);
    //tenQuestions();
   });
+
   $("#start-over").on("click", function() {
     correct=0;
     wrong=0;
@@ -54,7 +55,7 @@ function start(){
 } //End of start()
 
 function tenQuestions() {
-  if (j < 5) {   //Here is indicated the number of questions to display (maximum 10)    
+  if (j < 10) {   //Here is indicated the number of questions to display (maximum 10)    
   $("#display-timer").text("Time Remaining: " + time + " Seconds");
     console.log("correct answer: " + result[j].correct_answer);
     var number = Math.floor(Math.random() * 4);
@@ -110,7 +111,7 @@ function compareAnswer(nameHere){
 function showAnswer() {
   stopTimer();
   $("#answers-div").text("The Correct Answer is: " + correctAnswer);
-  setTimeout(tenQuestions, 5000);  //Time to show the correct answer in display
+  setTimeout(tenQuestions, 4000);  //Time to show the correct answer in display (4 secs in this case)
 } // End showAnswer()
 
 function displayValue(info, typeAttr) {
@@ -141,10 +142,10 @@ var intervalId;
 
 //prevents the clock from being sped up unnecessarily
 var clockRunning = false;
-var time = 22;
+var time = 20;
 
 function reset() {
-  time = 22;
+  time = 20;
   $("#display-timer").text("Time Remaining: " + time + " Seconds");
 } //End of reset
 
@@ -175,17 +176,3 @@ function count() {
     showAnswer();
   } //End of if-else
 } //End of count()
-
-
-
-  /* NEXT STEPS:
- Done - Compare attribute name from selected option with the correct answer.
- Done - Add counters for correct answers, incorrect answers and not answered.
- Done  - Add logic to show correct/incorrect answer when option is selected. 
- Done - Add timer and display it on screen above question.
- Done - Modify logic to include to show answer if no option is selectedin the alloted time and show "Out of Time!".
- Done - Add for-loop/counter to go through the 10 elements of the array (10 questions).
- Done - Show at the end the summary of the score and the "Start Over" option"
- Done - If start over option is selceted initialize counters and show the next serie of questions.
-      - Add API to show GIF for the correct answer, including in the search the content stored in attribute "name".
-  */
