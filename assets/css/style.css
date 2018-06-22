@@ -1,5 +1,5 @@
 body {
-	background-image: url("../images/vaio_hard_edge.png");
+    background-image: url("../images/cartoons-wallpapers.jpg");
 	font-size: 20px;
 	line-height: 25px;
 	font-family: 'Arial', 'Helvetica Neve', Helvetica, sans-serif;
@@ -7,7 +7,6 @@ body {
 }
 
 h1 {
-
     text-align: center;
 	line-height: 90px;
     color: #20fff7;
@@ -80,7 +79,8 @@ img {
 	padding: 10px 10px 2px 10px;
     min-height: 400px;
 	border: 1px solid #ddd;
-	background-color: #400ce8;
+    background-color: #400ce8;
+    opacity: 0.95;
 }
 
 #display-data {
