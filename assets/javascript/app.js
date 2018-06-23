@@ -42,7 +42,7 @@ function start(){
   $.ajax({
     //url: "https://opentdb.com/api.php?amount=10&category=17&difficulty=easy&type=multiple",
     //url: "https://opentdb.com/api.php?amount=10&category=14&difficulty=easy&type=multiple",
-    url: "https://opentdb.com/api.php?amount=10&category=32&difficulty=easy&type=multiple",  //Category: Cartoon & Animations
+    url: "https://opentdb.com/api.php?amount=10&category=32&difficulty=medium&type=multiple",  //Category: Cartoon & Animations
     method: "GET"
   }).done(function(resp) {
 
